@@ -24,7 +24,7 @@ public class PostService {
 	}
 
 	public Post add(Post user) {
-		UserDetails userDetails = userDetailsRepo.findById(user.getUserDetails().getId()).get();
+		UserDetails userDetails = userDetailsRepo.findById(1).get();
 		user.setUserDetails(userDetails);
 		return postrepo.save(user);
 	}

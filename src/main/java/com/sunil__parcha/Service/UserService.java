@@ -52,20 +52,20 @@ public class UserService {
 		return userDetailsRepo.save(userDetails);
 	}
 	
-	public UserDetails updateuserdetails(UserDetails user, int id) {
+	public UserDetails updateuserdetails(int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
-		userDetails.setFirstname(user.getFirstname());
-		userDetails.setLastname(user.getLastname());
-		userDetails.setUserPhoto(user.getUserPhoto());
-		userDetails.setPhone(user.getPhone());
-		userDetails.setLanguage(user.getLanguage());
-		userDetails.setEmail(user.getEmail());
-		userDetails.setGender(user.getGender());
-		userDetails.setRelation(user.getRelation());
-		userDetails.setPin(user.getPin());
-		userDetails.setAdress(user.getAdress());
-		userDetails.setCity(user.getCity());
-		userDetails.setPassword(user.getPassword());
+//		userDetails.setFirstname(user.getFirstname());
+//		userDetails.setLastname(user.getLastname());
+//		userDetails.setUserPhoto(user.getUserPhoto());
+//		userDetails.setPhone(user.getPhone());
+//		userDetails.setLanguage(user.getLanguage());
+//		userDetails.setEmail(user.getEmail());
+//		userDetails.setGender(user.getGender());
+//		userDetails.setRelation(user.getRelation());
+//		userDetails.setPin(user.getPin());
+//		userDetails.setAdress(user.getAdress());
+//		userDetails.setCity(user.getCity());
+//		userDetails.setPassword(user.getPassword());
 		return userDetailsRepo.save(userDetails);
 	}
 

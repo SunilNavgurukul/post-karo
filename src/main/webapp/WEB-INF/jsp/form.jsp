@@ -30,7 +30,6 @@ button {
 	border-radius: 20px;
 	cursor: pointer;
 	border-color: black;
-	
 }
 
 h2 {
@@ -41,8 +40,9 @@ fieldset {
 	font-size: 30px;
 	margin-top: 60px;
 	text-align: center;
-	border: 0a0000;
 	background: #e7e7e7;
+	border-style: ridge;
+	border-radius: 50px;
 }
 
 body {
@@ -54,10 +54,11 @@ body {
 <body>
 	<fieldset>
 		<h2>USER DETAILS FORM</h2>
-		<form:form action="/user/add-account" modelAttribute="userForm" method="POST">
+		<form:form action="/user/add-account" modelAttribute="userForm"
+			method="POST">
 			<div class="hidden">
 				<label>_Id: </label> <br>
-					<form:input path="id" />
+				<form:input path="id" />
 			</div>
 			<br>
 			<br>

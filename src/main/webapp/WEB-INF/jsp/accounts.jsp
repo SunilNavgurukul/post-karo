@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>All-Users</title>
 <style type="text/css">
 p {
@@ -21,7 +22,7 @@ p {
 	text-align: center;
 	border-radius: 20px;
 	float: right;
-	color: white;
+	text-decoration: none;
 }
 
 img {
@@ -56,6 +57,20 @@ p:hover {
 	cursor: pointer;
 }
 
+.card {
+	margin: 50px;
+	border-style: ridge;
+	padding: 8px;
+	border-radius: 50px;
+	width: 290px;
+}
+i {
+	color: black;
+}
+i:hover {
+	color: gray;
+}
+
 @media only screen and (max-width: 736px) {
 	.addButton {
 		float: none;
@@ -63,19 +78,30 @@ p:hover {
 	}
 	.grid-container {
 		grid-template-columns: auto;
-		margin-left: 5%;
+		margin-left: 0px;
+	}
+	.card {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	img {
+		margin-top: 20px;
+		margin-left: 30px;
 	}
 }
 </style>
 </head>
 <body>
-	<a class ="addButton" href="add">Add Account</a>
+	<a class="addButton" href="add">Add Account</a>
 	<div class="grid-container" style="text-align: center;">
 		<c:forEach items="${userList}" var="userList">
-			<div class="card"
-				style="margin: 15px; border-style: ridge; padding: 8px; border-radius: 50px; width: 290px">
+			<div class="card">
+			<c:url value="update/${userList.id}" var="UpdateUser" />
+				<a class= "icon" style="float: left; margin-left: 2rem;" href="${UpdateUser }"><i
+					style="font-size: 2rem" class="fa fa-edit"></i></a>
 				<c:url value="delete/${userList.id}" var="deleteUser" />
-			<a style="float: right; margin-right: 2rem;" href="${deleteUser }"><i style="font-size:2rem" class="fa fa-trash"></i></a>
+				<a class= "icon" style="float: right; margin-right: 2rem;" href="${deleteUser }"><i
+					style="font-size: 2rem" class="fa fa-trash"></i></a>
 				<div>
 					<img
 						src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
