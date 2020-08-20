@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,12 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sunil__parcha.Modal.UserDetails;
 import com.sunil__parcha.Service.UserService;
 
+
 @Controller
 @RequestMapping("/user")
 public class SocialController {
 
-//	@Value("${uploadDir}")
-//	private String uploadFolder;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
 	private UserService userService;
@@ -30,8 +32,6 @@ public class SocialController {
 	@GetMapping(value = "/all-account")
 	public ModelAndView findAll() throws UnsupportedEncodingException {
 		ModelAndView userModel = new ModelAndView("accounts");
-//		byte[] encodeBase64 = Base64.encodeBase64(userService.findAll().get(0).getUserPhoto());
-//		String base64DataString = new String(encodeBase64 , "UTF-8");
 		userModel.addObject("userList", userService.findAll());
 
 		return userModel;
@@ -53,8 +53,8 @@ public class SocialController {
 
 	@PostMapping(value = "/add-account")
 	public String postUserDetails(@ModelAttribute("userForm") UserDetails user) throws IOException {
-		System.out.println(user.getUserPhoto());
-
+		String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
 		userService.add(user);
 		return "redirect:all-account";
 	}

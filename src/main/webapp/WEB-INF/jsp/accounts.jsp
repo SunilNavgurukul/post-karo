@@ -11,9 +11,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>All-Users</title>
 <style type="text/css">
-p {
+/* p {
 	line-height: 10px;
-}
+} */
 
 .addButton {
 	background-color: blue;
