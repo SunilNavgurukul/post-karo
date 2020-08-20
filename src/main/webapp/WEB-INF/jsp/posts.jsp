@@ -56,10 +56,11 @@ a {
 }
 
 .card {
-	font-size: 30px;
+	font-size: 20px;
 	margin: 50px;
 	border-style: ridge;
-	padding: 8px;
+	/* 	padding: 8px;
+ */
 	border-radius: 50px;
 	width: 290px;
 	margin-left: auto;
@@ -68,6 +69,28 @@ a {
 
 .caption {
 	width: 100%;
+}
+
+button {
+	border: none;
+	background-color: white;
+	color: #2a2a72;
+}
+
+button:hover {
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.header {
+	background-color: #2a2a72;
+	margin-top: 40px;
+}
+.footer {
+	background-color: #2a2a72;
+	margin-bottom: 40px;
+	
+
 }
 </style>
 </head>
@@ -96,13 +119,24 @@ a {
 	<div>
 		<c:forEach items="${userList}" var="userList">
 			<div class="card">
+				<div class="header">
+					<br>
+				</div>
 				<img
 					src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
 					width="60%" height="140px" />
 				<h5 class="caption">${userList.caption}</h5>
-				<h5>
-					<i class="fa fa-thumbs-up"></i> : ${userList.likes}</h5>
+				<h6>
+					<button>
+						<i class="fa fa-thumbs-up"></i>
+					</button>
+					: ${userList.likes}
+				</h6>
+				<div class="footer">
+					<br>
+				</div>
 			</div>
+
 		</c:forEach>
 	</div>
 

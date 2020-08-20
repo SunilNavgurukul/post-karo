@@ -64,14 +64,19 @@ p:hover {
 	border-radius: 50px;
 	width: 290px;
 }
+
 i {
 	color: black;
 }
+
 i:hover {
 	color: gray;
 }
 
 @media only screen and (max-width: 736px) {
+	body {
+		margin-top: 20px;
+	}
 	.addButton {
 		float: none;
 		margin-left: 30%;
@@ -96,12 +101,14 @@ i:hover {
 	<div class="grid-container" style="text-align: center;">
 		<c:forEach items="${userList}" var="userList">
 			<div class="card">
-			<c:url value="update/${userList.id}" var="UpdateUser" />
-				<a class= "icon" style="float: left; margin-left: 2rem;" href="${UpdateUser }"><i
-					style="font-size: 2rem" class="fa fa-edit"></i></a>
+				<c:url value="update/${userList.id}" var="UpdateUser" />
+				<a class="icon" style="float: left; margin-left: 2rem;"
+					href="${UpdateUser }"><i style="font-size: 2rem"
+					class="fa fa-edit"></i></a>
 				<c:url value="delete/${userList.id}" var="deleteUser" />
-				<a class= "icon" style="float: right; margin-right: 2rem;" href="${deleteUser }"><i
-					style="font-size: 2rem" class="fa fa-trash"></i></a>
+				<a class="icon" style="float: right; margin-right: 2rem;"
+					href="${deleteUser }"><i style="font-size: 2rem"
+					class="fa fa-trash"></i></a>
 				<div>
 					<img
 						src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"

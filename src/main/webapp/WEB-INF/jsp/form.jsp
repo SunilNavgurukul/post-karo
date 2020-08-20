@@ -43,6 +43,7 @@ fieldset {
 	background: #e7e7e7;
 	border-style: ridge;
 	border-radius: 50px;
+	height: 1100px;
 }
 
 body {
@@ -60,90 +61,31 @@ body {
 				<label>_Id: </label> <br>
 				<form:input path="id" />
 			</div>
-			<br>
-			<br>
+
 			<label>Your Image: </label>
-			<br>
-			<tr>
-				<form:input type="file" path="userPhoto" />
-			</tr>
-			<br>
-			<br>
+			<form:input type="file" path="userPhoto" />
 			<label>First Name: </label>
-			<br>
-			<tr>
-				<form:input path="firstname" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="firstname" />
 			<label>Last Name: </label>
-			<br>
-			<tr>
-				<form:input path="lastname" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="lastname" />
 			<label>Address: </label>
-			<br>
-			<tr>
-				<form:input path="adress" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="adress" />
 			<label>Phone Number: </label>
-			<br>
-			<tr>
-				<form:input path="phone" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="phone" />
 			<label>Email: </label>
-			<br>
-			<tr>
-				<form:input path="email" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="email" />
 			<label>Gender: </label>
-			<br>
-			<tr>
-				<form:input path="gender" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="gender" />
 			<label>Language: </label>
-			<br>
-			<tr>
-				<form:input path="language" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="language" />
 			<label>City:</label>
-			<br>
-			<tr>
-				<form:input path="city" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="city" />
 			<label>Pin:</label>
-			<br>
-			<tr>
-				<form:input path="pin" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="pin" />
 			<label>Relation:</label>
-			<br>
-			<tr>
-				<form:input path="relation" />
-			</tr>
-			<br>
-			<br>
+			<form:input path="relation" />
 			<label>Password:</label>
-			<br>
-			<tr>
-				<form:input path="password" />
-			</tr>
+			<form:input path="password" />
 			<br>
 			<br>
 			<button type="submit">Save</button>

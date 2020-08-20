@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,8 +23,8 @@ import com.sunil__parcha.Service.UserService;
 @RequestMapping("/user")
 public class SocialController {
 	
-	@Value("${uploadDir}")
-	private String uploadFolder;
+//	@Value("${uploadDir}")
+//	private String uploadFolder;
 	
 	
 	@Autowired

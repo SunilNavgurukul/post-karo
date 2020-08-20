@@ -50,6 +50,10 @@ public class PostController {
 	public Post UpdatePost(@RequestBody Post user, @PathVariable("id") int id) {
 		return postService.Captionupdate(user, id);
 	}
+//	@PutMapping(value = "/update-caption/{id}")
+//	public Post Like(@RequestBody Post user, @PathVariable("id") int id) {
+//		return postService.Captionupdate(user, id);
+//	}
 	
 	@DeleteMapping(value = "/delete-post/{id}")
 	public String DeletePost(@PathVariable("id") int id) {
