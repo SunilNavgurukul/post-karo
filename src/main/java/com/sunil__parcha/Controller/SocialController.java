@@ -1,7 +1,5 @@
 package com.sunil__parcha.Controller;
 
-
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -22,17 +20,16 @@ import com.sunil__parcha.Service.UserService;
 @Controller
 @RequestMapping("/user")
 public class SocialController {
-	
+
 //	@Value("${uploadDir}")
 //	private String uploadFolder;
-	
-	
+
 	@Autowired
 	private UserService userService;
 
 	@GetMapping(value = "/all-account")
 	public ModelAndView findAll() throws UnsupportedEncodingException {
-		ModelAndView userModel=new ModelAndView("accounts");
+		ModelAndView userModel = new ModelAndView("accounts");
 //		byte[] encodeBase64 = Base64.encodeBase64(userService.findAll().get(0).getUserPhoto());
 //		String base64DataString = new String(encodeBase64 , "UTF-8");
 		userModel.addObject("userList", userService.findAll());
@@ -40,49 +37,49 @@ public class SocialController {
 		return userModel;
 	}
 
-	@GetMapping(value="/add")
-	public ModelAndView add() {	
-		ModelAndView userModel=new ModelAndView("form");
+	@GetMapping(value = "/add")
+	public ModelAndView add() {
+		ModelAndView userModel = new ModelAndView("form");
 		userModel.addObject("userForm", new UserDetails());
 		return userModel;
 	}
-	
+
 	@GetMapping(value = "/update/{id}")
 	public ModelAndView updateuserdetails(@PathVariable("id") int id) {
-		ModelAndView userModel=new ModelAndView("form");
+		ModelAndView userModel = new ModelAndView("form");
 		userModel.addObject("userForm", userService.updateuserdetails(id));
 		return userModel;
 	}
-	
+
 	@PostMapping(value = "/add-account")
-	public String postUserDetails(@ModelAttribute("userForm") UserDetails user ) throws IOException {
+	public String postUserDetails(@ModelAttribute("userForm") UserDetails user) throws IOException {
 		System.out.println(user.getUserPhoto());
-		
+
 		userService.add(user);
 		return "redirect:all-account";
 	}
-	
 
 	@PutMapping(value = "/update-genral/{id}")
 	public UserDetails genralupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
 		return userService.genralupdate(user, id);
 	}
-	
+
 	@PutMapping(value = "/update-address/{id}")
 	public UserDetails addressupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
 		return userService.addressupdate(user, id);
 	}
-	
+
 	@PutMapping(value = "/update-adisional/{id}")
 	public UserDetails adisionalupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
 		return userService.adisional(user, id);
 	}
-	
+
 	@PutMapping(value = "/update-password/{id}")
 	public UserDetails updatepassword(@RequestBody UserDetails user, @PathVariable("id") int id) {
 		return userService.updatepassword(user, id);
 	}
-	@GetMapping(value="/delete/{id}")
+
+	@GetMapping(value = "/delete/{id}")
 	public String deletedata(@PathVariable("id") int id) {
 		userService.delete(id);
 		return "redirect:/user/all-account";

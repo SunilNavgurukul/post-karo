@@ -6,4 +6,5 @@ import com.sunil__parcha.Modal.UserDetails;
 
 public interface UserDetailsRepo extends JpaRepository<UserDetails, Integer> {
 
+	UserDetails findByFirstname(String useString);
 }

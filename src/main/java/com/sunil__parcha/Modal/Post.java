@@ -1,6 +1,5 @@
 package com.sunil__parcha.Modal;
 
-
 import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
@@ -24,11 +23,9 @@ public class Post {
 	private int likes;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "userPosted", joinColumns = {
-			@JoinColumn(name = "postId")}, inverseJoinColumns = {
-					@JoinColumn(name = "userId") })
+	@JoinTable(name = "userPosted", joinColumns = { @JoinColumn(name = "postId") }, inverseJoinColumns = {
+			@JoinColumn(name = "userId") })
 	private UserDetails userDetails;
-
 
 	public int getId() {
 		return id;

@@ -12,15 +12,15 @@ import com.sunil__parcha.repository.UserDetailsRepo;
 
 @Service
 public class PostService {
-	
+
 	@Autowired
 	private PostRepo postrepo;
-	
+
 	@Autowired
 	private UserDetailsRepo userDetailsRepo;
 
 	public List<Post> findAll() {
-		return postrepo.findAll();
+		return postrepo.findAllByOrderByIdDesc();
 	}
 
 	public Post add(Post user) {

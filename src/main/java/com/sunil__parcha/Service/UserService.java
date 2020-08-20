@@ -30,6 +30,7 @@ public class UserService {
 		userDetails.setPhone(user.getPhone());
 		return userDetailsRepo.save(userDetails);
 	}
+
 	public UserDetails addressupdate(UserDetails user, int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
 		userDetails.setPin(user.getPin());
@@ -37,6 +38,7 @@ public class UserService {
 		userDetails.setCity(user.getCity());
 		return userDetailsRepo.save(userDetails);
 	}
+
 	public UserDetails adisional(UserDetails user, int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
 		userDetails.setLanguage(user.getLanguage());
@@ -45,13 +47,13 @@ public class UserService {
 		userDetails.setRelation(user.getRelation());
 		return userDetailsRepo.save(userDetails);
 	}
-	
+
 	public UserDetails updatepassword(UserDetails user, int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
 		userDetails.setPassword(user.getPassword());
 		return userDetailsRepo.save(userDetails);
 	}
-	
+
 	public UserDetails updateuserdetails(int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
 //		userDetails.setFirstname(user.getFirstname());
@@ -73,6 +75,5 @@ public class UserService {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
 		userDetailsRepo.delete(userDetails);
 	}
-	
 
 }

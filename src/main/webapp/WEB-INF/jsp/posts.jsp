@@ -50,7 +50,7 @@ img {
 }
 
 a {
-	margin-left: 200px;
+	margin-left: 150px;
 	color: white;
 	text-decoration: none;
 }
@@ -108,7 +108,10 @@ button:hover {
 		<h4>
 			<a href="#">My own post</a>
 		</h4>
-
+		
+		<h4>
+			<a href="/logout">logout</a>
+		</h4>
 
 		<form action="home" class="search-container">
 			<input type="text" style="color: black" placeholder="Search by name"
@@ -120,7 +123,7 @@ button:hover {
 		<c:forEach items="${userList}" var="userList">
 			<div class="card">
 				<div class="header">
-					<br>
+					<h2>${userList.userDetails.firstname} ${userList.userDetails.lastname}</h2>
 				</div>
 				<img
 					src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
@@ -133,6 +136,7 @@ button:hover {
 					: ${userList.likes}
 				</h6>
 				<div class="footer">
+					<br>
 					<br>
 				</div>
 			</div>

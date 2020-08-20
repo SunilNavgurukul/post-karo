@@ -19,33 +19,32 @@ import com.sunil__parcha.Service.PostService;
 @Controller
 @RequestMapping("/post")
 public class PostController {
-	
+
 	@Autowired
 	private PostService postService;
-	
+
 	@GetMapping(value = "/all-upload")
 	public ModelAndView findAll() {
-		ModelAndView userModel=new ModelAndView("posts");
+		ModelAndView userModel = new ModelAndView("posts");
 		userModel.addObject("userList", postService.findAll());
 
 		return userModel;
 	}
-	
-	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public ModelAndView add() {	
-		ModelAndView userModel=new ModelAndView("addpost");
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public ModelAndView add() {
+		ModelAndView userModel = new ModelAndView("addpost");
 		userModel.addObject("userPost", new Post());
 		return userModel;
-		
+
 	}
-	
-	
+
 	@PostMapping(value = "/add-post")
 	public String Userpost(@ModelAttribute("userPost") Post user) {
 		postService.add(user);
 		return "redirect:all-upload";
 	}
-	
+
 	@PutMapping(value = "/update-caption/{id}")
 	public Post UpdatePost(@RequestBody Post user, @PathVariable("id") int id) {
 		return postService.Captionupdate(user, id);
@@ -54,7 +53,7 @@ public class PostController {
 //	public Post Like(@RequestBody Post user, @PathVariable("id") int id) {
 //		return postService.Captionupdate(user, id);
 //	}
-	
+
 	@DeleteMapping(value = "/delete-post/{id}")
 	public String DeletePost(@PathVariable("id") int id) {
 		postService.DeletePost(id);
