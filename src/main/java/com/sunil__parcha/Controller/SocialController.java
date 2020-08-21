@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sunil__parcha.Modal.UserDetails;
 import com.sunil__parcha.Service.UserService;
+import com.sunil__parcha.repository.UserDetailsRepo;
 
 
 @Controller
@@ -29,6 +31,11 @@ public class SocialController {
 
 	@Autowired
 	private UserService userService;
+	
+	
+	@Autowired
+	private UserDetailsRepo userDetailsRepo;
+	
 
 	@GetMapping(value = "/all-account")
 	public ModelAndView findAll() throws UnsupportedEncodingException {
@@ -78,5 +85,11 @@ public class SocialController {
 	public String deletedata(@PathVariable("id") int id) {
 		userService.delete(id);
 		return "redirect:/user/all-account";
+	}
+	@GetMapping(value = "/userbyname")
+	public ModelAndView userByName(@RequestParam(required=false) String name) {
+		ModelAndView userModel = new ModelAndView("account");
+		userModel.addObject("user", userDetailsRepo.findByFirstname(name));
+		return userModel;
 	}
 }

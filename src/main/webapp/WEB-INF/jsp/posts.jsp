@@ -105,7 +105,7 @@ img {
 			<a class="navTools" href="/logout">logout</a>
 		</h4>
 
-		<form action="home" class="search-container">
+		<form action="/user/userbyname" class="search-container">
 			<input type="text" style="color: black" placeholder="Search by name"
 				name="name">
 			<button type="submit" class="submit1">Search</button>

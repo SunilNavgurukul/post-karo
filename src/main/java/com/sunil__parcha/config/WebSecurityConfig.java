@@ -26,22 +26,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
-		.authorizeRequests().anyRequest().fullyAuthenticated()
-		.and()
-		.formLogin()
-		.defaultSuccessUrl("/post/all-upload", true);
+		http.csrf().disable().authorizeRequests().anyRequest().fullyAuthenticated().and().formLogin()
+				.defaultSuccessUrl("/post/all-upload", true);
 
-//		For log out
-//		.and()
-//		.logout().invalidateHttpSession(true)
-//		.clearAuthentication(true)
-//		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//		.logoutSuccessUrl("/post/all-upload").permitAll()
 	}
+
 	@Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
+	public BCryptPasswordEncoder passwordEncoder() {
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		return bCryptPasswordEncoder;
+	}
 }
