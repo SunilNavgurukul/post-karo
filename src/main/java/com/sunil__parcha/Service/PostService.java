@@ -2,6 +2,8 @@ package com.sunil__parcha.Service;
 
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,19 @@ public class PostService {
 
 	public void DeletePost(int id) {
 		postrepo.deleteById(id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public JSONArray getOwnData(int id) {
+		JSONArray array = new JSONArray();
+		for (Object[] i : postrepo.getOwnData(id)) {
+			JSONObject obj = new JSONObject();
+			obj.put("caption", i[1]);
+			obj.put("likes", i[2]);
+			obj.put("postimg", i[3]);			
+			array.add(obj);
+		}
+		return array;
 	}
 
 }

@@ -33,7 +33,6 @@ public class SocialController {
 	public ModelAndView findAll() throws UnsupportedEncodingException {
 		ModelAndView userModel = new ModelAndView("accounts");
 		userModel.addObject("userList", userService.findAll());
-
 		return userModel;
 	}
 
