@@ -2,6 +2,7 @@ package com.sunil__parcha.Controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -50,27 +51,22 @@ public class SocialController {
 		return userModel;
 	}
 
+	@GetMapping(value = "/update")
+	public ModelAndView updateloginuserdetails(Principal principal) {
+		String name = principal.getName();
+		ModelAndView userModel = new ModelAndView("form");
+		userModel.addObject("userForm", userService.updateloginuserdetails(name));
+		return userModel;
+	}
+
 	@PostMapping(value = "/add-account")
 	public String postUserDetails(@ModelAttribute("userForm") UserDetails user) throws IOException {
-		String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
-		user.setPassword(encodedPassword);
+		if(!user.getPassword().contains("$2a$10")) {
+			String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+			user.setPassword(encodedPassword);
+		}
 		userService.add(user);
 		return "redirect:all-account";
-	}
-
-	@PutMapping(value = "/update-genral/{id}")
-	public UserDetails genralupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
-		return userService.genralupdate(user, id);
-	}
-
-	@PutMapping(value = "/update-address/{id}")
-	public UserDetails addressupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
-		return userService.addressupdate(user, id);
-	}
-
-	@PutMapping(value = "/update-adisional/{id}")
-	public UserDetails adisionalupdate(@RequestBody UserDetails user, @PathVariable("id") int id) {
-		return userService.adisional(user, id);
 	}
 
 	@PutMapping(value = "/update-password/{id}")

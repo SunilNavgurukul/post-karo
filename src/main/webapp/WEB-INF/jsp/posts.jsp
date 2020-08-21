@@ -49,7 +49,7 @@ img {
 	border-radius: 50%;
 }
 
-a {
+.navTools {
 	margin-left: 150px;
 	color: white;
 	text-decoration: none;
@@ -59,8 +59,6 @@ a {
 	font-size: 20px;
 	margin: 50px;
 	border-style: ridge;
-	/* 	padding: 8px;
- */
 	border-radius: 50px;
 	width: 290px;
 	margin-left: auto;
@@ -71,26 +69,20 @@ a {
 	width: 100%;
 }
 
-button {
+.button1 {
 	border: none;
 	background-color: white;
 	color: #2a2a72;
 }
 
-button:hover {
+.button1:hover {
 	cursor: pointer;
 	font-size: 20px;
 }
 
-.header {
-	background-color: #2a2a72;
-	margin-top: 40px;
-}
 .footer {
 	background-color: #2a2a72;
 	margin-bottom: 40px;
-	
-
 }
 </style>
 </head>
@@ -99,18 +91,18 @@ button:hover {
 	<div class="row">
 
 		<h4>
-			<a href="add">Add Post</a>
+			<a class="navTools" href="add">Add Post</a>
 		</h4>
 
 		<h4>
-			<a href="/user/update/1">Update profile</a>
+			<a class="navTools" href="/user/update">Update profile</a>
 		</h4>
 		<h4>
-			<a href="/post/my-own-post">My own post</a>
+			<a class="navTools" href="/post/my-own-post">My own post</a>
 		</h4>
-		
+
 		<h4>
-			<a href="/logout">logout</a>
+			<a class="navTools" href="/logout">logout</a>
 		</h4>
 
 		<form action="home" class="search-container">
@@ -122,22 +114,19 @@ button:hover {
 	<div>
 		<c:forEach items="${userList}" var="userList">
 			<div class="card">
-				<div class="header">
-					<h2 style="color: white;">${userList.userDetails.firstname} ${userList.userDetails.lastname}</h2>
-				</div>
 				<img
 					src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
 					width="60%" height="140px" />
 				<h5 class="caption">${userList.caption}</h5>
 				<h6>
-					<button>
-						<i class="fa fa-thumbs-up"></i>
-					</button>
-					: ${userList.likes}
+					<a class="button1" href="/post/like/${userList.id}"> <i
+						class="fa fa-thumbs-up"></i>
+					</a> : ${userList.likes}
 				</h6>
 				<div class="footer">
-					<br>
-					<br>
+					<h2 style="color: white;">${userList.userDetails.firstname}
+						${userList.userDetails.lastname}</h2>
+
 				</div>
 			</div>
 

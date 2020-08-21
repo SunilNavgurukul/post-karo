@@ -22,31 +22,6 @@ public class UserService {
 		return userDetailsRepo.findAll();
 	}
 
-	public UserDetails genralupdate(UserDetails user, int id) {
-		UserDetails userDetails = userDetailsRepo.findById(id).get();
-		userDetails.setFirstname(user.getFirstname());
-		userDetails.setLastname(user.getLastname());
-		userDetails.setUserPhoto(user.getUserPhoto());
-		userDetails.setPhone(user.getPhone());
-		return userDetailsRepo.save(userDetails);
-	}
-
-	public UserDetails addressupdate(UserDetails user, int id) {
-		UserDetails userDetails = userDetailsRepo.findById(id).get();
-		userDetails.setPin(user.getPin());
-		userDetails.setAdress(user.getAdress());
-		userDetails.setCity(user.getCity());
-		return userDetailsRepo.save(userDetails);
-	}
-
-	public UserDetails adisional(UserDetails user, int id) {
-		UserDetails userDetails = userDetailsRepo.findById(id).get();
-		userDetails.setLanguage(user.getLanguage());
-		userDetails.setEmail(user.getEmail());
-		userDetails.setGender(user.getGender());
-		userDetails.setRelation(user.getRelation());
-		return userDetailsRepo.save(userDetails);
-	}
 
 	public UserDetails updatepassword(UserDetails user, int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
@@ -56,18 +31,10 @@ public class UserService {
 
 	public UserDetails updateuserdetails(int id) {
 		UserDetails userDetails = userDetailsRepo.findById(id).get();
-//		userDetails.setFirstname(user.getFirstname());
-//		userDetails.setLastname(user.getLastname());
-//		userDetails.setUserPhoto(user.getUserPhoto());
-//		userDetails.setPhone(user.getPhone());
-//		userDetails.setLanguage(user.getLanguage());
-//		userDetails.setEmail(user.getEmail());
-//		userDetails.setGender(user.getGender());
-//		userDetails.setRelation(user.getRelation());
-//		userDetails.setPin(user.getPin());
-//		userDetails.setAdress(user.getAdress());
-//		userDetails.setCity(user.getCity());
-//		userDetails.setPassword(user.getPassword());
+		return userDetailsRepo.save(userDetails);
+	}
+	public UserDetails updateloginuserdetails(String name) {
+		UserDetails userDetails = userDetailsRepo.findByFirstname(name);
 		return userDetailsRepo.save(userDetails);
 	}
 

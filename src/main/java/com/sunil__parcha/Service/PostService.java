@@ -31,10 +31,18 @@ public class PostService {
 		return postrepo.save(user);
 	}
 
-	public Post Captionupdate(Post user, int id) {
+	public Post Captionupdate(int id) {
 		Post UserPost = postrepo.findById(id).get();
-		UserPost.setCaption(user.getCaption());
 		return UserPost;
+	}
+	public Post likes(Post user, int id) {
+		Post UserPost = postrepo.findById(id).get();
+		user.setLikes(UserPost.getLikes()+1);
+		user.setCaption(UserPost.getCaption());
+		user.setId(UserPost.getId());
+		user.setPostimg(UserPost.getPostimg());
+		user.setUserDetails(UserPost.getUserDetails());
+		return postrepo.save(user);
 	}
 
 	public void DeletePost(int id) {
@@ -46,6 +54,7 @@ public class PostService {
 		JSONArray array = new JSONArray();
 		for (Object[] i : postrepo.getOwnData(id)) {
 			JSONObject obj = new JSONObject();
+			obj.put("id", i[0]);
 			obj.put("caption", i[1]);
 			obj.put("likes", i[2]);
 			obj.put("postimg", i[3]);			

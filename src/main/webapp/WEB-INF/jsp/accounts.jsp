@@ -11,9 +11,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>All-Users</title>
 <style type="text/css">
-/* p {
-	line-height: 10px;
-} */
 
 .addButton {
 	background-color: blue;
@@ -22,6 +19,16 @@
 	text-align: center;
 	border-radius: 20px;
 	float: right;
+	text-decoration: none;
+}
+
+.PostButton {
+	background-color: blue;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	border-radius: 20px;
+	float: left;
 	text-decoration: none;
 }
 
@@ -58,7 +65,8 @@ p:hover {
 }
 
 .card {
-	margin: 50px;
+	margin: 45px;
+	margin-left : 8px;
 	border-style: ridge;
 	padding: 8px;
 	border-radius: 50px;
@@ -98,6 +106,7 @@ i:hover {
 </head>
 <body>
 	<a class="addButton" href="add">Add Account</a>
+	<a class="PostButton" href="/post/all-upload">Posts</a>
 	<div class="grid-container" style="text-align: center;">
 		<c:forEach items="${userList}" var="userList">
 			<div class="card">
