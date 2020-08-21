@@ -2,7 +2,6 @@ package com.sunil__parcha.Controller;
 
 import java.security.Principal;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sunil__parcha.Modal.Post;
@@ -48,8 +46,9 @@ public class PostController {
 	}
 
 	@PostMapping(value = "/add-post")
-	public String Userpost(@ModelAttribute("userPost") Post user) {
-		postService.add(user);
+	public String Userpost(@ModelAttribute("userPost") Post user, Principal principal) {
+		String name = principal.getName();
+		postService.add(user, name);
 		return "redirect:all-upload";
 	}
 
@@ -57,7 +56,6 @@ public class PostController {
 	public Post UpdatePost(@RequestBody Post user, @PathVariable("id") int id) {
 		return postService.Captionupdate(user, id);
 	}
-	@ResponseBody
 	@GetMapping(value = "/my-own-post")
 	public ModelAndView ownPost(Principal principal) {
 		String name = principal.getName();

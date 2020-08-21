@@ -25,8 +25,8 @@ public class PostService {
 		return postrepo.findAllByOrderByIdDesc();
 	}
 
-	public Post add(Post user) {
-		UserDetails userDetails = userDetailsRepo.findById(1).get();
+	public Post add(Post user, String name) {
+		UserDetails userDetails = userDetailsRepo.findByFirstname(name);
 		user.setUserDetails(userDetails);
 		return postrepo.save(user);
 	}
