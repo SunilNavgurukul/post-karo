@@ -4,7 +4,6 @@ import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,7 +52,7 @@ public class PostController {
 	public String Userpost(@ModelAttribute("userPost") Post user, Principal principal) {
 		String name = principal.getName();
 		postService.add(user, name);
-		return "redirect:all-upload";
+		return "redirect:/post/my-own-post";
 	}
 	
 	@GetMapping(value = "/my-own-post")
@@ -67,13 +66,13 @@ public class PostController {
 	@GetMapping(value = "/like/{id}")
 	public String Like(@ModelAttribute("userPost") Post user, @PathVariable("id") int id) {
 		postService.likes(user, id);
-		return "redirect:/post/all-upload";
+		return "redirect:";
 	}
 	
-	@DeleteMapping(value = "/delete-post/{id}")
-	public String DeletePost(@PathVariable("id") int id) {
-		postService.DeletePost(id);
-		return "Deleted";
-	}
+//	@GetMapping(value = "/delete-post/{id}")
+//	public String DeletePost(@PathVariable("id") int id) {
+//		postService.DeletePost(id);
+//		return "redirect:/post/my-own-post";
+//	}
 
 }

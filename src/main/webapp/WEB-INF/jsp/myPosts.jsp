@@ -85,7 +85,7 @@ i {
 				<a class="icon" style="float: left; margin-left: 2rem;"
 					href="${UpdateUser }"><i style="font-size: 2rem"
 					class="fa fa-edit"></i></a>
-				<c:url value="/post/delete/${userList.id}" var="deleteUser" />
+				<c:url value="#" var="deleteUser" />
 				<a class="icon" style="float: right; margin-right: 2rem;"
 					href="${deleteUser }"><i style="font-size: 2rem"
 					class="fa fa-trash"></i></a> <img
